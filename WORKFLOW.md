@@ -4,6 +4,8 @@ I. [FRONTEND]
 - Initialize npm inside frontend
 
 II. [BACKEND]
+
+II.1. [Serve & Fetch Data from express]
 We'll now fetch the data from the backend
 
 - Create a folder : PROSHOP/backend & ../backend/server.js
@@ -22,3 +24,37 @@ We'll now fetch the data from the backend
 - restart server whenever you add .env file
 - to convert from require to module: In package.json , under "main":
   => "type": "module", & export & import properly (see products file)
+
+II.1. [Getting_started_with_MongoDB]
+
+[Part_1]: Connecting to MongoDB
+
+- Log in to Atlas (Cloud version of MongoDB) + Create/Use the available cluster
+- Download MongoDB Compass: Graphical UI for desktop app
+- Under Database Access: create a new DB user
+- Under Network Acess: Add IP Address (current IP Adress if it's a production app that I'm deploying other allow access from anywhere)
+- Create a DB & collections under Clusters
+- Connect DB with compass by copying & pasting the link to Atlas: In the link put the correct name of the DB you wanna work with and the password somewhere in the link.
+- Last thing: Go to connect [again] -> connect your application -> copy that link to the env file and put the correct DB name,etc
+
+[Part_2]: Installing Mongoose
+
+- Mongoose: Object Modeling for MongoDB (to create a model & a schema for our DB)
+- root: npm i mongoose
+- backend/config/db.js
+- package: color.js : to add color in the console
+- backend/models : users, products & orders
+- model creation: import mongoose, create a schema, then the model.
+
+- remove ids from products.js
+- data/users.js : add an array of 3 users including 1 admin (follow schema)
+- root : npm i bcryptjs
+
+Routes:
+
+- backend/routes/productRoutes.js : put the relevant routes there
+- npm i express-async-handler : to handle errors for async/await
+
+Middleware:
+
+- backend/middleware/errorMiddleware.js
