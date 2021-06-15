@@ -5,7 +5,7 @@ I. [FRONTEND]
 
 II. [BACKEND]
 
-II.1. [Serve & Fetch Data from express]
+II.1. [Serve_&_Fetch_Data_from_express]
 We'll now fetch the data from the backend
 
 - Create a folder : PROSHOP/backend & ../backend/server.js
@@ -25,7 +25,7 @@ We'll now fetch the data from the backend
 - to convert from require to module: In package.json , under "main":
   => "type": "module", & export & import properly (see products file)
 
-II.1. [Getting_started_with_MongoDB]
+II.2. [Getting_started_with_MongoDB]
 
 [Part_1]: Connecting to MongoDB
 
@@ -58,3 +58,27 @@ Routes:
 Middleware:
 
 - backend/middleware/errorMiddleware.js
+
+III.3 [REDUX] : A state manager (For App, not components)
+
+- Download Redux Chrome DevTool
+- In frontend: npm i redux react-redux redux-thunk redux-devtools-extension
+- src/store.js : where we connect all our reducers & middleware
+
+[How_it_work] :
+
+- Create a constant -> Create reducer -> Create an action -> Then bring this to your component, eg HomeScreen (to fire off that action/to use that action)
+- frontend/reducers.
+
+[Summary]: see Pic in MERN/Traversy folder
+
+- Working from a screen : eg. ProductScreen
+- Fetch [data] from the state
+- Start off with the constants (to add piece of functionality)
+- Create a Product [reducer] & [action]
+- Whenever we create a new reducer we have to add that to our store
+- Fire it off with [useDispatch_to_use_the_action_we_just_created] (from react-redux) in the screen eg. ProductScreen & Get data in the component with [useSelector]
+
+[result]: Data comes from the server through Redux down to our State
+
+- Add Loader & Message
