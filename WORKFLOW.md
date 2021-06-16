@@ -82,3 +82,8 @@ III.3 [REDUX] : A state manager (For App, not components)
 [result]: Data comes from the server through Redux down to our State
 
 - Add Loader & Message
+
+III.4. [Adding_Shopping_Cart]
+
+- Done in ProductScreen: add useState, add {history, match}, add form & addtoCartHandler
+- Add CartScreen & add that to App.js and a route
