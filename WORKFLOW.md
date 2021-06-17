@@ -87,3 +87,10 @@ III.4. [Adding_Shopping_Cart]
 
 - Done in ProductScreen: add useState, add {history, match}, add form & addtoCartHandler
 - Add CartScreen & add that to App.js and a route
+
+III.5 [Authentication]
+For cleaner codes: use the server, routes & controllers
+[JSON_WEB_TOKEN]
+
+- backend/utils/generateToken.js
+- root: npm i jsonwebtoken
