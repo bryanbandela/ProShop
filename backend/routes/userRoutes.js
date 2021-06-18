@@ -3,6 +3,7 @@ import {
   authUser,
   registerUser,
   getUserProfile,
+  updateUserProfile,
 } from '../controllers/userController.js';
 import { protect } from '../middleware/authMiddleware.js';
 
@@ -12,6 +13,9 @@ router.route('/').post(registerUser);
 //it will use /api/users then /login
 router.post('/login', authUser);
 //protect is a middle from the folder middleware
-router.route('/profile').get(protect, getUserProfile);
+router
+  .route('/profile')
+  .get(protect, getUserProfile)
+  .put(protect, updateUserProfile);
 
 export default router;

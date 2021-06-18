@@ -64,3 +64,11 @@ I actually don't need a data seeder coz the app is fully functional without it. 
 
 IX. [ROUTER]
 app.use("/api/products", productRoutes); //for anything that goes to "/api/products" use the file productRoutes. assuming there is a file with all the routes
+
+X. [useDispatch_useSelector]
+
+useDispatch/dispatch => whenever you want your state to be saved in the store
+
+useSelector => whenever you want to use your state in your UI
+eg: const userLogin = useSelector((state) => state.userLogin);
+const { userInfo } = userLogin;

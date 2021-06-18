@@ -67,6 +67,8 @@ III.3 [REDUX] : A state manager (For App, not components)
 
 [How_it_work] :
 
+(constant => reducer => [update]store reduceCombiner (it should appear in our dev tools)=>action)
+
 - Create a constant -> Create reducer -> Create an action -> Then bring this to your component, eg HomeScreen (to fire off that action/to use that action)
 - frontend/reducers.
 
@@ -94,3 +96,7 @@ For cleaner codes: use the server, routes & controllers
 
 - backend/utils/generateToken.js
 - root: npm i jsonwebtoken
+
+IV. [Back_To_Frontend]
+
+- Create userConstants.js,etc for USER_LOGIN (request, success & fail)
