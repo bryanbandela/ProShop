@@ -5,6 +5,7 @@ import colors from 'colors';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/products', productRoutes); //for anything that goes to "/api/products" use the file productRoutes
 app.use('/api/users', userRoutes); //for anything that goes to "/api/users" use the file userRoutes
+app.use('/api/orders', orderRoutes); //for anything that goes to "/api/orders" use the file orderRoutes
 
 //Define a 404 message
 app.use(notFound);
