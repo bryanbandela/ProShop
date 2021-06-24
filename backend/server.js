@@ -13,8 +13,8 @@ connectDB();
 
 const app = express();
 
-//To allow us to accept json data in the body
-app.use(express.json());
+app.use(express.json()); //this acts liek a middleware. The app will parse every single JSON that are coming in and will make it available in the req.body otherwise req.body will be undefined
+// aap.use(express.urlencoded({extended: true})); //extended means how deep do you wanna go into nested object yes or no? if you won't get nested objects then skip this
 
 app.get('/', (req, res) => {
   res.send('API is running');
@@ -23,6 +23,10 @@ app.get('/', (req, res) => {
 app.use('/api/products', productRoutes); //for anything that goes to "/api/products" use the file productRoutes
 app.use('/api/users', userRoutes); //for anything that goes to "/api/users" use the file userRoutes
 app.use('/api/orders', orderRoutes); //for anything that goes to "/api/orders" use the file orderRoutes
+
+app.get('/api/config/paypal', (req, res) =>
+  res.send(process.env.PAYPAL_CLIENT_ID)
+);
 
 //Define a 404 message
 app.use(notFound);
