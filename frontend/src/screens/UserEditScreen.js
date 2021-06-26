@@ -28,12 +28,16 @@ const UserEditScreen = ({ match, history }) => {
   } = userUpdate;
 
   useEffect(() => {
+    console.log(user);
+    console.log(user.name);
+    console.log(!user.name);
+    console.log(user._id);
+
     if (successUpdate) {
       dispatch({ type: USER_UPDATE_RESET });
       history.push('/admin/userlist');
     } else {
       if (!user.name || user._id !== userId) {
-        //if it doesn't exist or matches the url then we'll go fetch the userDetails
         dispatch(getUserDetails(userId));
       } else {
         setName(user.name);
