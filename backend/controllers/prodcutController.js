@@ -7,7 +7,7 @@ import Product from '../models/productModel.js';
 //(because some routes will be Private hence need a token, eg. purchase)
 const getProducts = asyncHandler(async (req, res) => {
   //Pagination
-  const pageSize = 2; //the number of item per page
+  const pageSize = 3; //the number of items per page
   const page = Number(req.query.pageNumber) || 1; //by default we should be on page 1 or we query what page we're on
 
   //Search queries
