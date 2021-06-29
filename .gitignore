@@ -42,7 +42,7 @@ node_modules/
 jspm_packages/
 
 # Production
-build
+/frontend/build
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/

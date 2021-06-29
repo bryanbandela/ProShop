@@ -24,10 +24,6 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json()); //this acts liek a middleware. The app will parse every single JSON that are coming in and will make it available in the req.body otherwise req.body will be undefined
 // aap.use(express.urlencoded({extended: true})); //extended means how deep do you wanna go into nested object yes or no? if you won't get nested objects then skip this
 
-app.get('/', (req, res) => {
-  res.send('API is running');
-});
-
 app.use('/api/products', productRoutes); //for anything that goes to "/api/products" use the file productRoutes
 app.use('/api/users', userRoutes); //for anything that goes to "/api/users" use the file userRoutes
 app.use('/api/orders', orderRoutes); //for anything that goes to "/api/orders" use the file orderRoutes
@@ -39,6 +35,19 @@ app.get('/api/config/paypal', (req, res) =>
 
 const __dirname = path.resolve();
 app.use('/uploads', express.static(path.join(__dirname, '/uploads'))); //this is how you make a folder static(eg. uploads). What static means is that a folder becomes accessable by a user
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '/frontend/build')));
+
+  //"*" any route that is not an API as above
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+  );
+} else {
+  app.get('/', (req, res) => {
+    res.send('API is running');
+  });
+}
 
 //Define a 404 message
 app.use(notFound);
