@@ -85,3 +85,33 @@ const { userInfo } = userLogin;
    Problem: I inserted two elements in a component
    e.g <LinkContainer>{}{}</LinkContainer>
    Solution: I had to remove it
+
+[BUGS_TO_FIX]
+
+Cart reset & other bugs
+16
+16 upvotes
+Alexei · Lecture 90 · 9 months ago
+Hey Brad,
+
+Thanks for the great course, as usual :P
+
+Some bugs I found...
+
+1. You forgot to implement cart reset after order is submited, the cart stays with the items even if the order submited and payed,
+
+2. The search box, when you press the "back" button, it goes back, but the search input stays with the search value.
+
+3. The loaders.. when you used {successUpdate && ...} and {success && ...} sometimes you can see two loaders on one action (for example in the product managment page, try to delete a couple of products one after other).
+
+4. product details page reset.. when you enter a couple of different products, you can see the previous product details for a second, untill it updates with the new product details.
+
+5. Usualy only clients that bought some product should be able to rate it, not everybody.
+
+6. When you delete user, you should delete his orders also... its not makes sense to leave it.. besides you cant enter/view any of the deleted user orders...
+
+7. When you keep the product details in the order tabe (details like image), if the product get updated, its not appears in the orders.. you can still see the old product details.. I think it should be populated with the product table and get the updated details from that table.
+
+8. Maybe you can add stripe in addition to paypal.
+
+"engines": { "node": ">=12.19.0" },
