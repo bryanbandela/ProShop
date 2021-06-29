@@ -3,6 +3,7 @@ import express from 'express';
 import connectDB from './config/db.js';
 import dotenv from 'dotenv';
 import colors from 'colors';
+import morgan from 'morgan';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
@@ -14,6 +15,11 @@ dotenv.config();
 connectDB();
 
 const app = express();
+
+//Just for dev mode
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
 
 app.use(express.json()); //this acts liek a middleware. The app will parse every single JSON that are coming in and will make it available in the req.body otherwise req.body will be undefined
 // aap.use(express.urlencoded({extended: true})); //extended means how deep do you wanna go into nested object yes or no? if you won't get nested objects then skip this

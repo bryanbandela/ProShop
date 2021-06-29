@@ -74,8 +74,14 @@ eg: const userLogin = useSelector((state) => state.userLogin);
 const { userInfo } = userLogin;
 
 [ERROR_HANDLING]
-Type_Error: "name" propety not found/undefined, unable to deconstruct:
+
+1. Type_Error: "name" propety not found/undefined, unable to deconstruct:
 
 - Check the spelling or accuracy of file imported
 - console.log the values before it gets called
 - check what the params gives you and read the errors
+
+2. Error: React.Children.only expected to receive a single React element child
+   Problem: I inserted two elements in a component
+   e.g <LinkContainer>{}{}</LinkContainer>
+   Solution: I had to remove it
